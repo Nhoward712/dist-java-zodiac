@@ -13,10 +13,9 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @Table(name = "Fortune")
 public class Fortune {
-
     @Id
     @Column(name = "fortune_Id")
-    private int id;
+    private int fortuneId;
 
     @Column(name = "text")
     private String text;

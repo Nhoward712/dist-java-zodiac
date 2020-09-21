@@ -5,5 +5,5 @@ create table Fortune (
 
 create table Month (
       num int primary key,
-      name varchar(75) not null
+      nm varchar(75) not null
 );

@@ -21,7 +21,7 @@ Random horoscopes from https://cafeastrology.com/dailyhoroscopesall-tomorrow.htm
 @Service
 public class RandomHoroscopeService implements HoroscopeService {
 //    private List<Fortune> allFortunes;
-    List<Fortune> allFortunes = initHoroscopes();
+//    List<Fortune> allFortunes;
     private ZodiacService zodiacService;
 
     @Autowired
@@ -34,6 +34,7 @@ public class RandomHoroscopeService implements HoroscopeService {
 
     @Override
     public Horoscope getHoroscope(Birthday birthday) {
+
         String sign;
         if (birthday.getZodiacType().toLowerCase().startsWith("w")) {
             sign = zodiacService.getWesternZodiacSign(birthday);
@@ -43,6 +44,7 @@ public class RandomHoroscopeService implements HoroscopeService {
 
         Horoscope hscope = new Horoscope();
         hscope.setSign(sign);
+        List<Fortune> allFortunes =initHoroscopes();
 
         int randomIndex = (int) (Math.random() * allFortunes.size());
         hscope.setHoroscope(allFortunes.get(randomIndex).getText());
